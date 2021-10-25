@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="container-4">
+	<h4 class="display-5 text-center ">Employee List</h4>
+	
+	<div class="border p-2">
+
+		<table class="table">
+			<form class="d-flex" method='get' action='/empsearch/'>
+            <input type='search' placeholder='Employee Name...' name='query' autocomplete="off">
+            </form>
+			<thead>
+				<tr>
+					<th>SR.NO</th>
+					<th>NAME</th>
+					<th>DATE OF BIRTH</th><br>
+					<th>DATE OF JOINING</th>
+					<th>GENDER</th>
+					<th>DESIGNATION</th>
+					<th>REPORTING MANAGER</th>
+					<th>EMP IMAGES</th>
+					
+					<th>EMAIL</th>
+					<th colspan="2">
+                    	<center>Action</center>
+                	</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for e in q1 %}
+				<tr>
+					<td>{{forloop.counter}}</td>
+					<td>{{e.name}}</td>
+					<td>{{e.date_of_birth}}</td>
+					<td>{{e.date_of_joining}}</td>
+					<td>{{e.gender}}</td>
+					<td>{{e.designation}}</td>
+					<td>{{e.reporting_manager}}</td>
+					<td>{{e.emp_image}}</td>
+					<td>{{e.email}}</td>
+					<td><a href="/empdelete/{{e.id}}/">Delete</a></td>
+                	<td>
+                    	<a href="/empedit/{{e.id}}/">Edit</a>
+                	</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>	
+</div>
+{% endblock %}

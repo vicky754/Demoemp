@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<br><br>
+<div class='container mt-4'>
+	
+	<div class="col-4 mx-auto border p-4">
+	<h1 class="display-6 alert alert-info text-center">Login Page</h1>
+	<hr>
+  <div class="ui warning message" id="message" {% if not error %} hidden {% endif %}> 
+      {{error}}
+  </div>
+	<form method="POST" class="ui form">
+  <div class="field">
+    <label class="form-label">User Name</label>
+    <input type="text" placeholder="Employee Name" name='name' autocomplete="off"> 
+  </div>
+  <div class="field">
+    <label class="form-label">Password</label>
+    <input type="password" placeholder="********" name='password' id="exampleInputPassword1">
+  </div>
+  <div>
+  <button type="submit" class="button ui teal" onclick="popUp()" >Submit</button>
+  </div>
+  {% csrf_token %}
+</form>
+
+</div>	
+</div>
+
+{% load static %}
+<!--
+<script src="{% static 'app1/js/popup.js'%}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'app1/css/popup.css' %}">
+-->
+<script src="{% static 'app1/js/popup.js' %}"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+
+{% endblock %}

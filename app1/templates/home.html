@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="card col-6 mt-5 card-body mx-auto " style="background-color: #e3f2fd;">
+<h1 class="col-8 mx-auto">Hello {{request.session.user.name}}!</h1>
+<h2 class="col-8 mx-auto">Login Successfully</h2>
+<div id="myModal" class="modal">
+<div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Login Successfully</p>
+</div>
+</div>
+
+
+
+{% endblock %}
+

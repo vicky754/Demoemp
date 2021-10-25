@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+
+<div class="container-4">
+	<h4 class="display-5 text-center ">Employee Details</h4>
+
+	
+	<div class="border p-2 " >
+	<form method='POST' action=''>{% csrf_token %}
+    			{{form|crispy}}
+				
+				
+       			 <input class='btn btn-primary' type="submit" value='Export CSV'/>
+	</form>
+
+		<table class="table border">
+			<!-- Search form -->
+			{% comment %} <form class="form-inline d-flex justify-content-center md-form form-sm active-pink active-pink-2 mt-2" method="get" action="/empsearch/">
+  				<i class="fas fa-search" aria-hidden="true"></i>
+  				<input class="form-control" type="search" placeholder="Search by Name..." name='query'
+    					aria-label="Export CSV" autocomplete="off">
+				</form>
+				<
+				<div class="col-md-4">
+				<a href="{% url 'export-excel'%}" class="btn btn-primary">Export Excel</a>
+				
+					</div>
+             {% endcomment %}
+             
+             		 
+			<thead class="btn-info">
+				<tr>
+					<th>SR.NO</th>
+					<th>NAME
+					</th>
+					<th>DATE OF BIRTH</th><br>
+					<th>DATE OF JOINING</th>
+					<th>GENDER</th>
+					<th>DESIGNATION</th>
+					<th>REPORTING MANAGER</th>
+					<th>EMP IMAGES</th>
+					
+					<th>EMAIL</th>
+					<th colspan="2">
+                    	<center>Action</center>
+                	</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for e in emp %}
+				<tr>
+					<td>{{forloop.counter}}</td>
+					<td>{{e.name}}</td>
+					<td>{{e.date_of_birth}}</td>
+					<td>{{e.date_of_joining}}</td>
+					<td>{{e.gender}}</td>
+					<td>{{e.designation}}</td>
+					<td>{{e.reporting_manager}}</td>
+					
+					<td>{{e.emp_image}}</td>
+					
+					
+					<td>{{e.email}}</td>
+					<td><a class="btn btn-primary " href="/empdelete/{{e.id}}/">Delete</a></td>
+                	<td>
+                    	 <a class="btn btn-primary" href="/empedit/{{e.id}}/"> Edit </a>
+                	</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		
+             
+
+		{% comment %} </table>
+		<br>
+		<a href="/export_excel/" class='btn btn-primary'>Export To Excel</a> {% endcomment %}
+	</div>	
+	
+</div>
+
+
+{% endblock %}

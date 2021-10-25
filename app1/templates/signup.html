@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<br>
+<div class='container mt-4'>
+	
+	<div class="col-5 mx-auto border p-4">
+	<h1 class="display-8 alert alert-info text-center">Signup Page</h1>
+	<hr> 
+  <div class="ui warning message" id="message" hidden="true"> 
+
+  </div>
+  
+	<form method="POST" id="form"  action="/signup/" class="ui form">
+
+  <div class="field">
+    <label>Employee Name</label>
+    <input type="text"  required="" placeholder="Employee name" name='name' id="username" autocomplete="off"> 
+    <!--<i class="fas fa-check-circle"></i>
+    <i class="fas fa-exclamation-circle"></i>
+    <small>Error Msg</small>-->
+  </div>
+  <div class="field">
+    <label class="form-label">Date of Birth</label>
+    <input type="Date" required="" name='date_of_birth'> 
+  </div>
+  <div class="field">
+    <label>Date of Joining</label>
+    <input type="Date" required="" name='date_of_joining'> 
+  </div>
+  <div class="field">
+    <label >Gender</label>
+    <input type="text" required="" placeholder="Male/Female" name='gender' autocomplete="off"> 
+  </div>
+  <div class="field">
+    <label>Designation</label>
+    <input type="text" required="" placeholder="Designation" name='designation' autocomplete="off"> 
+  </div>
+  <div class="field">
+    <label>Reporting Manager</label>
+    <input type="text" required="" placeholder="Reporting Manager" name='reporting_manager' autocomplete="off"> 
+  </div>
+
+  <div class="field">
+    <label>Employee Image</label>
+    <input type="file"   name='emp_image'> 
+  </div>
+  <div class="field">
+    <label>Password</label>
+    <input type="password" required="" placeholder="*********" name='password' id="password">
+    <!--<i class="fas fa-check-circle"></i>
+    <i class="fas fa-exclamation-circle"></i>
+    <small>Error Msg</small>-->
+  </div>
+  <div class="field">
+    <label>Email Id</label>
+    <input type="email" required="" placeholder="Employee Email" name='email' id="email" autocomplete="off">
+    <!--<i class="fas fa-check-circle"></i>
+    <i class="fas fa-exclamation-circle"></i>
+    <small>Error Msg</small>-->
+  </div>
+  <hr>
+  <button type="submit" value="submit" onclick="popUp()" class="btn btn-info ui-button">Submit</button>
+  {% csrf_token %}
+</form>
+<!--<div id="myModal" class="modal">
+<div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Registered Successfully</p>
+</div>-->
+</div>	
+</div>
+<br><br>
+
+{% load static %}
+<!--<script src="{% static 'app1/js/signup.js'%}"></script>
+<script src="{% static 'app1/js/popup.js' %}"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'app1/css/popup.css' %}">-->
+<script src="{% static 'app1/js/sweetalert.js' %}"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+{% endblock %}

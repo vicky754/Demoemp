@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class='alert alert-info display-7 font-weight-bold text-uppercase mt-0 col-6  text-center mx-auto mt-4'>
+    <h4>Edit Form</h4>
+</div>
+<div class='container container-body col-6 shadow mt-4  ml-1 border border-info mb-4 pt-2 pb-2 mx-auto'>
+
+    <form method="POST" enctype='multipart/form-data'>
+
+        {% csrf_token %}
+        <table cellpading="10" cellspacing="10" class="mx-auto">
+
+            {{form.as_table}}
+            <br>
+            
+        </table>
+        <tr>
+                <td><hr><input class='btn btn-primary btn-lg ' type="submit" value="Save"></td>
+            </tr>
+
+    </form>
+</div>
+{% endblock %}
